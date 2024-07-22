@@ -10,7 +10,7 @@ const theme = extendTheme({
   styles: {
     global: (props) => ({
       body: {
-        bg: mode('red', 'gray.800')(props), // Définition de la couleur de fond en fonction du mode (clair ou sombre)
+        bg: mode('', 'gray.800')(props), // Définition de la couleur de fond en fonction du mode (clair ou sombre)
       },
     }),
   },

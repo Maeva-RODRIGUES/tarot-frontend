@@ -9,7 +9,7 @@ function Homepage() {
     <Box>
       <Header />
       <Box p={4}>
-        <Text fontSize="xl">Bienvenue sur la page d'accueil !</Text>
+        <Text fontSize="xl">Tous nos tirages</Text>
       </Box>
     </Box>
   );

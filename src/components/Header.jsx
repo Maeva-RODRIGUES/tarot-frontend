@@ -1,15 +1,13 @@
 // src/components/Header.jsx
 
 import React from 'react';
-import { Box, Heading } from '@chakra-ui/react';
+import Navbar from './Navbar';
 
 function Header() {
   return (
-    <Box bg="blue.500" p={4}>
-      <Heading as="h1" size="lg" color="black">
-        Mon Application
-      </Heading>
-    </Box>
+    <header>
+      <Navbar logo="/src/assets/img/logo-minimaliste.png" />
+    </header>
   );
 }
 
