@@ -2,17 +2,20 @@
 
 import React from 'react';
 import { Box, Text } from '@chakra-ui/react';
-import Header from '../components/Header';
+import Header from '../components/Header.jsx';
 
 function Homepage() {
-  return (
-    <Box>
-      <Header />
-      <Box p={4}>
-        <Text fontSize="xl">Tous nos tirages</Text>
+    return (
+      <Box>
+        <Header 
+        bannerSrc="../../src/assets/img/backgroungtexture.jpg" 
+        bannerAlt="Bannière d'accueil" 
+        bannerHeight="300px" 
+      />
+        <Box p={4}>
+          <Text fontSize="xl">TOUS NOS TIRAGES</Text>
+        </Box>
       </Box>
-    </Box>
-  );
-}
-
+    );
+  }
 export default Homepage;
