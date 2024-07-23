@@ -8,7 +8,7 @@ import footerLogo from '../../src/assets/img/logo-minimaliste.png'; // Logo pour
 
 function Footer({ bannerSrc, bannerAlt, bannerHeight = '100px' }) {
   return (
-    <footer style={{ margin: 0, padding: 0 }}>
+    <footer style={{ margin: 0, padding: 0, marginTop: '300px'}}>
       <BannerFooter src={bannerSrc} alt={bannerAlt} height={bannerHeight} />
       <NavbarFooter logo={footerLogo} />
     </footer>

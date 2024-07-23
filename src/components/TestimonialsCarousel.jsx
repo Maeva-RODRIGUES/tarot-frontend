@@ -37,7 +37,7 @@ function TestimonialsCarousel() {
     ];
   
     return (
-      <Box p={4} w="100%" ml="a0" mr={25}>
+      <Box p={4} w="50%" ml="-100" mt='100'> {/* Ajustement de la largeur et centrage */}
         <Slider ref={sliderRef} {...settings}>
           {testimonials.map((testimonial, index) => (
             <Box key={index} onClick={() => sliderRef.current.slickNext()}>
