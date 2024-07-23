@@ -5,7 +5,7 @@ import { Box, Heading, Flex, Image, Text, Button } from '@chakra-ui/react';
 
 function Cartomancienne() {
     return (
-        <Box mt={400} textAlign="center" position="relative" zIndex="1">
+        <Box mt={620} textAlign="center" position="relative" zIndex="1">
         <Heading as="h3" mb={70}>Notre cartomancienne</Heading>
         <Box 
           p={4} 
@@ -14,7 +14,7 @@ function Cartomancienne() {
           overflow="hidden" 
           borderColor="black" // Couleur de la bordure noire
           boxShadow="lg" // Effet ombré
-          maxWidth="700px" // Limite la largeur de la Box
+          maxWidth="600px" // Limite la largeur de la Box
           mx="auto" // Centre la Box horizontalement
         >
           <Flex align="left">
@@ -31,7 +31,7 @@ function Cartomancienne() {
           color="white" 
           _hover={{ bg: "#00008B" }} 
           position="absolute" 
-          bottom="-70px" 
+          bottom="-80px" 
           left="50%" 
           transform="translateX(-50%)"
         >
