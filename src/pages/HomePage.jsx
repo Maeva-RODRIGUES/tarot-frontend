@@ -8,6 +8,8 @@ import CardsMenu from "../components/CardsMenu.jsx";
 import TestimonialsCarousel from "../components/TestimonialsCarousel.jsx";
 import Cartomancienne from "../components/TarotReaderCard.jsx";
 
+
+
 function Homepage() {
   return (
     <Box>
@@ -25,14 +27,14 @@ function Homepage() {
           <Box
             position="absolute"
             top="0"
-            left="0"
+            left="-0"
             transform="translateX(0)"
             zIndex="-1"
           >
             <Image
               src="/src/assets/img/hand.jpg"
               alt="Main"
-              boxSize="630px"
+              boxSize="730px"
               objectFit="cover"
             />
           </Box>
