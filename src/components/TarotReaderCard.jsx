@@ -5,8 +5,8 @@ import { Box, Heading, Flex, Image, Text, Button } from '@chakra-ui/react';
 
 function Cartomancienne() {
     return (
-        <Box mt={620} textAlign="center" position="relative" zIndex="1">
-        <Heading as="h3" mb={70}>Notre cartomancienne</Heading>
+        <Box mt={600} textAlign="center" position="relative" zIndex="1">
+        <Heading as="h3" mb={70}>NOTRE CARTOMANCIENNE</Heading>
         <Box 
           p={4} 
           borderWidth="1px" 
