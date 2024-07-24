@@ -1,9 +1,11 @@
-// UseTarotDeck.jsx
+// UseTarotDeck.jsx (hook)
 import { useState } from "react";
 
 const useTarotDeck = () => {
   const [selectedCards, setSelectedCards] = useState([]);
-  const [cards, setCards] = useState(Array(22).fill("/src/assets/img/decklove.PNG"));
+  const [cards, setCards] = useState(
+    Array(22).fill("/src/assets/img/decklove.PNG"),
+  );
 
   const selectCard = (card) => {
     setSelectedCards([...selectedCards, card]);

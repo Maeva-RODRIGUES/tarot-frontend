@@ -30,7 +30,6 @@ function LoveTarotPage() {
             <br />
             Il est important d'être au calme lors d'une séance.
           </Text>
-
           <TarotDeck />
           <CommentSection />
         </Box>
