@@ -41,7 +41,7 @@ function Navbar({ logo }) {
             À propos
           </RouterLink>
           <span
-            onClick={() => openPopup('contact')} // Ouvrir la popup de contact
+            onClick={() => openPopup("contact")} // Ouvrir la popup de contact
             style={{ marginRight: "20px", color: "white", cursor: "pointer" }}
           >
             Contact
@@ -50,17 +50,17 @@ function Navbar({ logo }) {
         <Spacer />
         <Flex align="center" fontWeight="bold">
           <span
-             onClick={() => openPopup('login')} // Ouvrir la popup de login
+            onClick={() => openPopup("login")} // Ouvrir la popup de login
             style={{ marginRight: "20px", color: "white", cursor: "pointer" }}
           >
             Connexion
           </span>
-          <RouterLink
-            to="/inscription"
-            style={{ marginRight: "20px", color: "white" }}
+          <span
+            onClick={() => openPopup("signup")}
+            style={{ marginRight: "20px", color: "white", cursor: "pointer" }}
           >
             Inscription
-          </RouterLink>
+          </span>
           <Box as="img" src={logo} alt="Logo" height="70px" />
         </Flex>
       </Flex>

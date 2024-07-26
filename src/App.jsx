@@ -12,6 +12,7 @@ import ChakraProviderWrapper from "./ChakraProviderWrapper";
 import { PopupProvider } from "./components/context/PopupContext"; // Importation du PopupProvider
 import AppointmentPopup from "./components/AppointmentPopup.jsx"; // Importation du composant AppointmentPopup
 import LoginPopup from "./components/LoginPopup"; // Importer LoginPopup
+import SignupPopup from "./components/SignupPopup"; // Importer SignupPopup
 import "./styles/index.css";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         </Routes>
         <AppointmentPopup /> {/* Popup de contact */}
         <LoginPopup /> {/* Popup de connexion */}
+        <SignupPopup /> {/* Ajout du composant SignupPopup ici */}
       </PopupProvider>
     </ChakraProviderWrapper>
   );
