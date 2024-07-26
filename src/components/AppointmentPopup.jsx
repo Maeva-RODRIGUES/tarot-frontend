@@ -1,4 +1,4 @@
-// AppointmentPopup.jsx
+//AppointmentPopup.jsx
 
 import React from "react";
 import {
@@ -20,7 +20,7 @@ import {
   Heading,
   Text
 } from "@chakra-ui/react";
-import { usePopup } from "./context/PopupContext"; // Assure-toi que le chemin est correct
+import { usePopup } from "./context/PopupContext.jsx"; // Assure-toi que le chemin est correct
 
 function AppointmentPopup() {
   const { popupType, closePopup } = usePopup();

@@ -1,11 +1,20 @@
 // NavbarFooter.jsx
 
 import React from "react";
-import { Box, Flex, Link as ChakraLink, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { usePopup } from "./context/PopupContext"; //importer le hook
 
 function NavbarFooter({ logo }) {
+  const { openPopup } = usePopup(); // Obtenir la fonction pour ouvrir la popup
+
+  // Fonction pour ouvrir le popup de contact
+  const handleContactClick = (e) => {
+    e.preventDefault(); // Empêche le comportement par défaut du lien
+    openPopup("contact"); // Ouvre le popup de contact
+  };
+
   return (
     <Box
       bg="black"
@@ -24,15 +33,21 @@ function NavbarFooter({ logo }) {
           <Link to="/" style={{ marginRight: "20px" }}>
             Accueil
           </Link>
-          <Link to="/tirages" style={{ marginRight: "20px" }}>
+          <Link to="/#tirages" style={{ marginRight: "20px" }}>
             Tirages
           </Link>
-          <Link to="/a-propos" style={{ marginRight: "20px" }}>
+
+          <Link to="/about" style={{ marginRight: "20px" }}>
             À propos
           </Link>
-          <Link to="/contact" style={{ marginRight: "20px" }}>
+          <a
+            href="#"
+            onClick={handleContactClick}
+            style={{ marginRight: "20px" }}
+          >
             Contact
-          </Link>
+          </a>
+
           <Link to="/legal-mentions" style={{ marginRight: "20px" }}>
             Mentions légales
           </Link>

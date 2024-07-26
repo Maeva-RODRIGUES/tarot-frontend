@@ -26,7 +26,7 @@ function Homepage() {
         bannerHeight="300px"
       />
       <Box p={4}>
-        <Heading as="h1" mb={4}>
+        <Heading as="h1" mb={4} id="tirages">
           TOUS NOS TIRAGES
         </Heading>
         <CardsMenu />

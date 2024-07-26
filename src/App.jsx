@@ -8,6 +8,7 @@ import Homepage from "./pages/HomePage.jsx";
 import LoveTarotPage from "./pages/LoveTarotPage.jsx";
 import LegalMentionsPage from "./pages/LegalMentionsPage.jsx";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage.jsx";
+import AboutPage from "./pages/AboutPage.jsx"; // Importer AboutPage
 import ChakraProviderWrapper from "./ChakraProviderWrapper";
 import { PopupProvider } from "./components/context/PopupContext"; // Importation du PopupProvider
 import AppointmentPopup from "./components/AppointmentPopup.jsx"; // Importation du composant AppointmentPopup
@@ -24,6 +25,8 @@ function App() {
           <Route path="/love" element={<LoveTarotPage />} />
           <Route path="/legal-mentions" element={<LegalMentionsPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/about" element={<AboutPage />} />{" "}
+          {/* Ajout de la route AboutPage */}
         </Routes>
         <AppointmentPopup /> {/* Popup de contact */}
         <LoginPopup /> {/* Popup de connexion */}

@@ -29,13 +29,13 @@ function Navbar({ logo }) {
             Accueil
           </RouterLink>
           <RouterLink
-            to="/tirages"
+            to="/#tirages"
             style={{ marginRight: "20px", color: "white" }}
           >
             Tirages
           </RouterLink>
           <RouterLink
-            to="/a-propos"
+            to="/about"
             style={{ marginRight: "20px", color: "white" }}
           >
             À propos
