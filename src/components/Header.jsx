@@ -13,27 +13,27 @@ function Header({
   bannerHeight = "auto",
   backgroundPosition = "center",
 }) {
-  // Ajout de backgroundPosition ici
   return (
     <header>
       <Navbar logo={navbarLogo} />
-      <Banner
-        src={bannerSrc}
-        alt={bannerAlt}
-        height={bannerHeight}
-        logow={bannerLogo}
-        backgroundPosition={backgroundPosition}
-      />{" "}
-      {/* Utilisation de backgroundPosition ici */}
+      {bannerSrc && (
+        <Banner
+          src={bannerSrc}
+          alt={bannerAlt}
+          height={bannerHeight}
+          logo={bannerLogo} // Correction du nom de la prop à 'logo'
+          backgroundPosition={backgroundPosition}
+        />
+      )}
     </header>
   );
 }
 
 Header.propTypes = {
-  bannerSrc: PropTypes.string.isRequired,
-  bannerAlt: PropTypes.string.isRequired,
-  bannerHeight: PropTypes.string, // Ajout de la prop bannerHeight
-  backgroundPosition: PropTypes.string, // Ajout de la prop backgroundPosition
+  bannerSrc: PropTypes.string, // Rendre optionnel
+  bannerAlt: PropTypes.string, // Rendre optionnel
+  bannerHeight: PropTypes.string,
+  backgroundPosition: PropTypes.string,
 };
 
 export default Header;

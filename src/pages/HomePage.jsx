@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 //HomePage.jsx
 
 import React from "react";
@@ -8,7 +9,7 @@ import Footer from "../components/Footer.jsx";
 import CardsMenu from "../components/CardsMenu.jsx";
 import TestimonialsCarousel from "../components/TestimonialsCarousel.jsx";
 import Cartomancienne from "../components/TarotReaderCard.jsx";
-import { useParallax } from "../hooks/UseParallax.jsx";
+import { useParallax } from "../hooks/useParallax.js";
 
 const MotionBox = motion(Box);
 
@@ -29,7 +30,7 @@ function Homepage() {
         </Heading>
         <CardsMenu />
         <Box position="relative" textAlign="center" mt={8}>
-        <MotionBox
+          <MotionBox
             position="absolute"
             top="0"
             left="0"
@@ -38,9 +39,12 @@ function Homepage() {
             style={{
               transform: `translateY(${y}px)`,
               opacity:0.8, 
-              background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 0))',
-              WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)',
-              maskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)'
+              background:
+                "linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 0))",
+              WebkitMaskImage:
+                "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
+              maskImage:
+                "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
             }}
           >
             <Image
@@ -58,7 +62,7 @@ function Homepage() {
             position="relative"
             zIndex="1"
           >
-            <Box mb={2} ml='540' mt='70' position="relative" zIndex="1">
+            <Box mb={2} ml="540" mt="70" position="relative" zIndex="1">
               <Heading as="h2">VOS TÉMOIGNAGES</Heading>
             </Box>
           </Flex>

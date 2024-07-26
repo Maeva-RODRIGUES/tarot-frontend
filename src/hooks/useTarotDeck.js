@@ -1,8 +1,10 @@
-// useTarotDeck.jsx (hook)
-
+// useTarotDeck.js (hook) : gère l'état et la logique du jeu de tarot.
+// Importation du hook useState de React
 import { useState } from "react";
-import backImage from "../assets/img/backlove.png"; // Image du verso
+// Importation de l'image du verso des cartes
+import backImage from "../assets/img/backlove.png";
 
+// Définition des couleurs pour le recto des cartes
 const rectoColors = [
   "#FF6347", // Tomate
   "#4682B4", // Bleu acier
@@ -28,15 +30,21 @@ const rectoColors = [
   "#FF00FF", // Magenta
 ];
 
+// Hook personnalisé pour gérer le jeu de tarot
 const useTarotDeck = () => {
+  // État pour stocker les cartes, initialisé avec les couleurs définies
   const [cards, setCards] = useState(rectoColors);
 
+  // Fonction pour mélanger les cartes
   const shuffleCards = () => {
+    // Création d'un nouveau tableau avec les cartes mélangées
     const shuffled = [...cards].sort(() => Math.random() - 0.5);
-    setCards(shuffled);
+    setCards(shuffled); // Mise à jour de l'état des cartes
   };
 
+  // Retourne les cartes, la fonction de mélange et l'image du verso
   return { cards, shuffleCards, backImage };
 };
 
+// Exportation du hook personnalisé
 export default useTarotDeck;

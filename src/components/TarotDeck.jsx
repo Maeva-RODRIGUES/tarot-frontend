@@ -1,15 +1,20 @@
-// TarotDeck.jsx
+// components/TarotDeck.jsx
 
 import { Box, SimpleGrid, Button, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TarotCard from "./TarotCard";
-import useTarotDeck from "../hooks/UseTarotDeck";
+import useTarotDeck from "../hooks/useTarotDeck";
+import useAnimations from "../hooks/useAnimations"; // Import du hook d'animations
 
 function TarotDeck() {
   const { cards, shuffleCards, backImage } = useTarotDeck();
-  const [animateProps, setAnimateProps] = useState(
-    Array(cards.length).fill({ x: 0, y: 0, rotate: 0 }),
-  );
+  const {
+    animateProps,
+    triggerRiffleShuffle,
+    triggerCutAnimation,
+    setAnimateProps,
+  } = useAnimations(); // Utilisation du hook d'animations
+
   const [buttonText, setButtonText] = useState("Mélangez");
   const [flippedCards, setFlippedCards] = useState(
     Array(cards.length).fill(false),
@@ -17,51 +22,45 @@ function TarotDeck() {
   const [selectedCards, setSelectedCards] = useState([]);
   const [isCutting, setIsCutting] = useState(false);
   const [canSelectCards, setCanSelectCards] = useState(false);
+  const [showButton, setShowButton] = useState(true); // État pour afficher ou masquer le bouton
+
+  const resetState = () => {
+    const defaultProps = Array(cards.length).fill({
+      x: 0,
+      y: 0,
+      rotate: 0,
+      opacity: 1,
+    });
+    console.log("Resetting animation props to:", defaultProps);
+    setAnimateProps(defaultProps);
+  };
 
   const handleShuffle = () => {
     shuffleCards();
-    console.log("Shuffled cards:", cards); // Debugging
-    const newAnimateProps = cards.map(() => ({
-      x: Math.random() * 200 - 100,
-      y: Math.random() * 200 - 100,
-      rotate: Math.random() * 360 - 180,
-    }));
-    setAnimateProps(newAnimateProps);
+    console.log("Shuffled cards:", cards);
+
+    // Déclencher l'animation de mélange
+    triggerRiffleShuffle(cards.length);
+    console.log("Button Text After Shuffle:", buttonText);
+
     setTimeout(() => {
-      setAnimateProps(Array(cards.length).fill({ x: 0, y: 0, rotate: 0 }));
+      resetState(); // Utiliser la fonction correcte pour réinitialiser les animations
       setButtonText("Coupez");
-    }, 1000);
+    }, 1000); // Temps pour l'animation de mélange
   };
 
   const handleCut = () => {
     setIsCutting(true);
-
-    // Regrouper toutes les cartes au centre
-    const stackProps = cards.map(() => ({
-      x: 0,
-      y: 0,
-      rotate: 0,
-    }));
-    setAnimateProps(stackProps);
-
+    console.log("Button Text Before Cut:", buttonText);
+    // Déclencher l'animation de coupe
+    triggerCutAnimation(cards.length);
+    console.log("Triggering cut animation with cards:", cards.length);
     setTimeout(() => {
-      // Diviser les cartes en deux paquets après les avoir regroupées
-      const half = Math.ceil(cards.length / 2);
-      const splitProps = cards.map((_, index) => ({
-        x: index < half ? -150 : 150,
-        y: 0,
-        rotate: 0,
-      }));
-      setAnimateProps(splitProps);
-
-      setTimeout(() => {
-        // Revenir à la position initiale
-        setAnimateProps(Array(cards.length).fill({ x: 0, y: 0, rotate: 0 }));
-        setButtonText("Tirez 3 cartes");
-        setIsCutting(false);
-        setCanSelectCards(true);
-      }, 1000);
-    }, 1000);
+      resetState(); // Réinitialiser l'état après l'animation de coupe
+      setIsCutting(false);
+      setCanSelectCards(true);
+      setShowButton(false); // Masquer le bouton après la coupe
+    }, 2000); // Temps pour l'animation de coupe
   };
 
   const handleClick = (index) => {
@@ -73,31 +72,47 @@ function TarotDeck() {
     }
   };
 
+  // Vérifie les propriétés d'animation à chaque mise à jour
+  useEffect(() => {
+    console.log("Updated animateProps:", animateProps);
+  }, [animateProps]);
+
   return (
     <Box display="flex" flexDirection="column" alignItems="center">
       <SimpleGrid columns={[2, null, 11]} spacingX="2px" spacingY="10px">
-        {cards.map((color, index) => (
-          <Box key={index} onClick={() => handleClick(index)}>
-            <TarotCard
-              frontColor={color} // Couleur distincte pour le recto
-              backImage={backImage} // Verso commun
-              height="150px"
-              width="100px"
-              animateProps={animateProps[index]}
-              isFlipped={flippedCards[index]}
-            />
-          </Box>
-        ))}
+        {cards.map((color, index) => {
+          // Déplacer le console.log ici pour vérifier l'index de chaque carte
+          console.log(
+            "Card Index:",
+            index,
+            "Animation Props:",
+            animateProps[index],
+          );
+          return (
+            <Box key={index} onClick={() => handleClick(index)}>
+              <TarotCard
+                frontColor={color}
+                backImage={backImage}
+                height="150px"
+                width="100px"
+                animateProps={animateProps[index]}
+                isFlipped={flippedCards[index]}
+              />
+            </Box>
+          );
+        })}
       </SimpleGrid>
-      <Button
-        mt={10}
-        bg="#191970"
-        color="white"
-        size="lg"
-        onClick={buttonText === "Mélangez" ? handleShuffle : handleCut}
-      >
-        {buttonText}
-      </Button>
+      {showButton && (
+        <Button
+          mt={10}
+          bg="#191970"
+          color="white"
+          size="lg"
+          onClick={buttonText === "Mélangez" ? handleShuffle : handleCut}
+        >
+          {buttonText}
+        </Button>
+      )}
       {selectedCards.length === 3 && (
         <Box mt={10} textAlign="center">
           <Text fontSize="xl" fontWeight="bold">
