@@ -7,6 +7,9 @@ import { mode } from "@chakra-ui/theme-tools"; // Importation de la fonction mod
 
 // Création d'un thème personnalisé avec extendTheme
 const theme = extendTheme({
+  colors: {
+    customBlue: "#191970", // Définissez votre couleur personnalisée ici
+  },
   styles: {
     global: (props) => ({
       body: {

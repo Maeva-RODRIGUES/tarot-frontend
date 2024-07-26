@@ -14,6 +14,7 @@ import { PopupProvider } from "./components/context/PopupContext"; // Importatio
 import AppointmentPopup from "./components/AppointmentPopup.jsx"; // Importation du composant AppointmentPopup
 import LoginPopup from "./components/LoginPopup"; // Importer LoginPopup
 import SignupPopup from "./components/SignupPopup"; // Importer SignupPopup
+import DashboardUserPage from "./pages/DashboardUserPage";
 import "./styles/index.css";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/legal-mentions" element={<LegalMentionsPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/about" element={<AboutPage />} />{" "}
+          <Route path="/dashboard" element={<DashboardUserPage />} />
           {/* Ajout de la route AboutPage */}
         </Routes>
         <AppointmentPopup /> {/* Popup de contact */}
