@@ -2,17 +2,18 @@
 
 import React, { createContext, useState, useContext } from 'react';
 
-// Crée le contexte pour la popup
 const PopupContext = createContext();
 
 export function PopupProvider({ children }) {
-  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [popupType, setPopupType] = useState(null);
 
-  const openPopup = () => setPopupOpen(true);
-  const closePopup = () => setPopupOpen(false);
+  // Ouvrir un popup spécifique en fonction du type
+  const openPopup = (type) => setPopupType(type);
+  // Fermer le popup actuellement ouvert
+  const closePopup = () => setPopupType(null);
 
   return (
-    <PopupContext.Provider value={{ isPopupOpen, openPopup, closePopup }}>
+    <PopupContext.Provider value={{ popupType, openPopup, closePopup }}>
       {children}
     </PopupContext.Provider>
   );
@@ -21,3 +22,4 @@ export function PopupProvider({ children }) {
 export function usePopup() {
   return useContext(PopupContext);
 }
+

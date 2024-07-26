@@ -2,10 +2,6 @@
 /* eslint-disable react/jsx-no-undef */
 // App.jsx
 
-/* eslint-disable import/extensions */
-/* eslint-disable react/jsx-no-undef */
-
-// Importations nécessaires
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Homepage from "./pages/HomePage.jsx";
@@ -15,6 +11,7 @@ import PrivacyPolicyPage from "./pages/PrivacyPolicyPage.jsx";
 import ChakraProviderWrapper from "./ChakraProviderWrapper";
 import { PopupProvider } from "./components/context/PopupContext"; // Importation du PopupProvider
 import AppointmentPopup from "./components/AppointmentPopup.jsx"; // Importation du composant AppointmentPopup
+import LoginPopup from "./components/LoginPopup"; // Importer LoginPopup
 import "./styles/index.css";
 
 function App() {
@@ -27,7 +24,8 @@ function App() {
           <Route path="/legal-mentions" element={<LegalMentionsPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         </Routes>
-        <AppointmentPopup />
+        <AppointmentPopup /> {/* Popup de contact */}
+        <LoginPopup /> {/* Popup de connexion */}
       </PopupProvider>
     </ChakraProviderWrapper>
   );

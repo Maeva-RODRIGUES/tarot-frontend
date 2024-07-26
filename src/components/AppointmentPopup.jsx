@@ -1,3 +1,5 @@
+// AppointmentPopup.jsx
+
 import React from "react";
 import {
   Button,
@@ -5,7 +7,6 @@ import {
   FormLabel,
   Input,
   Textarea,
-  useDisclosure,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -22,10 +23,12 @@ import {
 import { usePopup } from "./context/PopupContext"; // Assure-toi que le chemin est correct
 
 function AppointmentPopup() {
-  const { isPopupOpen, closePopup } = usePopup();
+  const { popupType, closePopup } = usePopup();
+
+  if (popupType !== 'contact') return null; // Affiche le popup uniquement si popupType est 'contact'
 
   return (
-    <Modal isOpen={isPopupOpen} onClose={closePopup}>
+    <Modal isOpen={popupType === 'contact'} onClose={closePopup}>
       <ModalOverlay />
       <ModalContent maxWidth="1200px"> {/* Définit une largeur personnalisée */}
         <ModalHeader>
@@ -99,4 +102,3 @@ function AppointmentPopup() {
 }
 
 export default AppointmentPopup;
-

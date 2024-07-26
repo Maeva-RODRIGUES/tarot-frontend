@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions */
+/* eslint-disable react/jsx-no-undef */
 // Navbar.jsx
 
 import React from "react";
@@ -39,7 +41,7 @@ function Navbar({ logo }) {
             À propos
           </RouterLink>
           <span
-            onClick={openPopup}
+            onClick={() => openPopup('contact')} // Ouvrir la popup de contact
             style={{ marginRight: "20px", color: "white", cursor: "pointer" }}
           >
             Contact
@@ -47,12 +49,12 @@ function Navbar({ logo }) {
         </Flex>
         <Spacer />
         <Flex align="center" fontWeight="bold">
-          <RouterLink
-            to="/connexion"
-            style={{ marginRight: "20px", color: "white" }}
+          <span
+             onClick={() => openPopup('login')} // Ouvrir la popup de login
+            style={{ marginRight: "20px", color: "white", cursor: "pointer" }}
           >
             Connexion
-          </RouterLink>
+          </span>
           <RouterLink
             to="/inscription"
             style={{ marginRight: "20px", color: "white" }}
