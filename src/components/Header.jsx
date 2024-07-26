@@ -21,7 +21,7 @@ function Header({
           src={bannerSrc}
           alt={bannerAlt}
           height={bannerHeight}
-          logo={bannerLogo} // Correction du nom de la prop à 'logo'
+          logow={bannerLogo} // Assure-toi que la prop est bien 'logow'
           backgroundPosition={backgroundPosition}
         />
       )}

@@ -2,24 +2,33 @@
 /* eslint-disable react/jsx-no-undef */
 // App.jsx
 
-import React from "react"; // Importation de React pour créer des composants
+/* eslint-disable import/extensions */
+/* eslint-disable react/jsx-no-undef */
+
+// Importations nécessaires
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Homepage from "./pages/HomePage.jsx";
 import LoveTarotPage from "./pages/LoveTarotPage.jsx";
-import LegalMentionsPage from "./pages/LegalMentionsPage.jsx"; // Assurez-vous que le chemin est correct
+import LegalMentionsPage from "./pages/LegalMentionsPage.jsx";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage.jsx";
-import ChakraProviderWrapper from "./ChakraProviderWrapper"; // Importation de ChakraProviderWrapper
+import ChakraProviderWrapper from "./ChakraProviderWrapper";
+import { PopupProvider } from "./components/context/PopupContext"; // Importation du PopupProvider
+import AppointmentPopup from "./components/AppointmentPopup.jsx"; // Importation du composant AppointmentPopup
 import "./styles/index.css";
 
 function App() {
   return (
     <ChakraProviderWrapper>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/love" element={<LoveTarotPage />} />
-        <Route path="/legal-mentions" element={<LegalMentionsPage />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-      </Routes>
+      <PopupProvider>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/love" element={<LoveTarotPage />} />
+          <Route path="/legal-mentions" element={<LegalMentionsPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        </Routes>
+        <AppointmentPopup />
+      </PopupProvider>
     </ChakraProviderWrapper>
   );
 }

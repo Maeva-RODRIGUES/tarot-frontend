@@ -1,18 +1,19 @@
 /* eslint-disable import/extensions */
-//HomePage.jsx
+// HomePage.jsx
 
 import React from "react";
 import { Box, Heading, Flex, Image } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import Header from "../components/Header.jsx";
-import Footer from "../components/Footer.jsx";
-import CardsMenu from "../components/CardsMenu.jsx";
-import TestimonialsCarousel from "../components/TestimonialsCarousel.jsx";
-import Cartomancienne from "../components/TarotReaderCard.jsx";
-import { useParallax } from "../hooks/useParallax.js";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import CardsMenu from "../components/CardsMenu";
+import TestimonialsCarousel from "../components/TestimonialsCarousel";
+import Cartomancienne from "../components/TarotReaderCard";
+import { useParallax } from "../hooks/useParallax";
+import backgroundTexture from "../assets/img/backgroungtexture.jpg";
+import footerBanner from "../assets/img/footer-banner.jpg";
 
 const MotionBox = motion(Box);
-
 
 function Homepage() {
   const y = useParallax([0, 300], [0, 50]);
@@ -20,7 +21,7 @@ function Homepage() {
   return (
     <Box>
       <Header
-        bannerSrc="../../src/assets/img/backgroungtexture.jpg"
+        bannerSrc={backgroundTexture}
         bannerAlt="Bannière d'accueil"
         bannerHeight="300px"
       />
@@ -38,7 +39,7 @@ function Homepage() {
             zIndex="-1"
             style={{
               transform: `translateY(${y}px)`,
-              opacity:0.8, 
+              opacity: 0.8,
               background:
                 "linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 0))",
               WebkitMaskImage:
@@ -69,16 +70,15 @@ function Homepage() {
         </Box>
         <Flex justify="right" align="center" mt={4}>
           <Box w="58%">
-            <TestimonialsCarousel />{" "}
-            {/* Ajout du composant TestimonialsCarousel ici */}
+            <TestimonialsCarousel />
           </Box>
         </Flex>
-        <Box mt={7} position="relative" zIndex="0">
-          <Cartomancienne /> 
+        <Box mt={10} pb={8} position="relative">
+          <Cartomancienne />
         </Box>
       </Box>
       <Footer
-        bannerSrc="../../src/assets/img/footer-banner.jpg"
+        bannerSrc={footerBanner}
         bannerAlt="Bannière de pied de page"
         bannerHeight="300px"
       />
