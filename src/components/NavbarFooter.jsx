@@ -1,11 +1,11 @@
 // NavbarFooter.jsx
 
 import React from "react";
-import { Box, Flex, Link as ChakraLink, Text } from "@chakra-ui/react";
+import { Box, Flex, Spacer } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom"; // Utilisation de Link de react-router-dom
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
-function NavbarFooter({ logo }) {
+function Navbar({ logo }) {
   return (
     <Box
       bg="black"
@@ -13,33 +13,45 @@ function NavbarFooter({ logo }) {
       fontFamily="Urbanist"
       p={2}
       w="100vw"
-      position="relative"
-      bottom="0"
+      position="fixed"
+      top="0"
       left="0"
       zIndex="1000"
-      m={0}
     >
       <Flex align="center" maxW="1200px" mx="auto" w="100%">
         <Flex align="center">
-          <Link to="/" style={{ marginRight: "20px" }}>
+          <RouterLink to="/" style={{ marginRight: "20px" }}>
+            {" "}
+            {/* Lien vers la page d'accueil */}
             Accueil
-          </Link>
-          <Link to="/tirages" style={{ marginRight: "20px" }}>
+          </RouterLink>
+          <RouterLink to="/tirages" style={{ marginRight: "20px" }}>
+            {" "}
+            {/* Lien vers la page des tirages */}
             Tirages
-          </Link>
-          <Link to="/a-propos" style={{ marginRight: "20px" }}>
-            À propos
-          </Link>
-          <Link to="/contact" style={{ marginRight: "20px" }}>
+          </RouterLink>
+          <RouterLink to="/a-propos" style={{ marginRight: "20px" }}>
+            {" "}
+            {/* Lien vers la page à propos */}À propos
+          </RouterLink>
+          <RouterLink to="/contact" style={{ marginRight: "20px" }}>
+            {" "}
+            {/* Lien vers la page de contact */}
             Contact
-          </Link>
-          <Link to="/legal-mentions" style={{ marginRight: "20px" }}>
-            Mentions légales
-          </Link>
-          <Link to="/privacy-policy">Politique de confidentialité</Link>
+          </RouterLink>
         </Flex>
-        <Flex align="center" ml="auto">
-          <Text mr={2}>© 2024</Text>
+        <Spacer />
+        <Flex align="center" fontWeight="bold">
+          <RouterLink to="/connexion" style={{ marginRight: "20px" }}>
+            {" "}
+            {/* Lien vers la page de connexion */}
+            Connexion
+          </RouterLink>
+          <RouterLink to="/inscription" style={{ marginRight: "20px" }}>
+            {" "}
+            {/* Lien vers la page d'inscription */}
+            Inscription
+          </RouterLink>
           <Box as="img" src={logo} alt="Logo" height="70px" />
         </Flex>
       </Flex>
@@ -47,8 +59,8 @@ function NavbarFooter({ logo }) {
   );
 }
 
-NavbarFooter.propTypes = {
+Navbar.propTypes = {
   logo: PropTypes.string.isRequired,
 };
 
-export default NavbarFooter;
+export default Navbar;

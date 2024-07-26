@@ -15,7 +15,7 @@ function App() {
   return (
     <ChakraProviderWrapper>
       <Routes>
-        <Route exact path="/" element={<Homepage />} />
+        <Route path="/" element={<Homepage />} />
         <Route path="/love" element={<LoveTarotPage />} />
         <Route path="/legal-mentions" element={<LegalMentionsPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
