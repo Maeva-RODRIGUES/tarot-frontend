@@ -50,7 +50,10 @@ function AboutPage() {
         <Image
           src="/src/assets/icons/iconmoondoor.png"
           alt="Illustration"
-          boxSize="300px"
+          boxSize="500px"
+          width="600px"
+          height="600px"
+          marginTop="-80px"
         />
         <Box ml={8}>
           <Heading size="md">
