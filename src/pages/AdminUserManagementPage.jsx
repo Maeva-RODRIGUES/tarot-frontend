@@ -1,4 +1,4 @@
-// AdminDashboardPage.jsx : Vue d'ensemble des statistiques et des options administratives
+// AdminUserManagementPage.jsx : Gestion des utilisateurs par l'administrateur
 
 import React from "react";
 import {
@@ -11,12 +11,13 @@ import {
   Text,
   Button,
   Spacer,
-  SimpleGrid,
-  Stat,
-  StatLabel,
-  StatNumber,
-  StatHelpText,
-  StatArrow,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  Link,
 } from "@chakra-ui/react";
 import {
   FaUser,
@@ -25,19 +26,31 @@ import {
   FaSignOutAlt,
   FaUsers,
   FaFileAlt,
-  FaChartLine,
 } from "react-icons/fa";
 import { Link as RouterLink } from "react-router-dom";
 import Header from "../components/HeaderDashboard";
 import Footer from "../components/Footer";
 import { useAuth } from "../components/context/AuthContext";
 
-function AdminDashboardPage() {
+// Importer les données fictives des utilisateurs
+import { mockUsers } from "../utils/mockData";
+
+function AdminUserManagementPage() {
   const { logout } = useAuth();
 
   const handleLogout = () => {
     logout();
     navigate("/"); // Redirige vers la page d'accueil après la déconnexion
+  };
+
+  const handleUpdate = (userId) => {
+    // Fonction de gestion de la mise à jour de l'utilisateur
+    console.log("Mettre à jour l'utilisateur avec l'ID :", userId);
+  };
+
+  const handleDelete = (userId) => {
+    // Fonction de gestion de la suppression de l'utilisateur
+    console.log("Supprimer l'utilisateur avec l'ID :", userId);
   };
 
   return (
@@ -102,58 +115,42 @@ function AdminDashboardPage() {
         </VStack>
       </Flex>
 
-      <Box ml="250px" p="8" pt="2" flex="1">
-        <Heading mb="12">Tableau de bord administrateur</Heading>
-        {/* Ajout des statistiques */}
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
-          <Stat
-            p="4"
-            borderWidth="1px"
-            borderRadius="md"
-            borderColor="gray.200"
-            bg="white"
-            boxShadow="md"
-          >
-            <StatLabel>Utilisateurs actifs</StatLabel>
-            <StatNumber>1,200</StatNumber>
-            <StatHelpText>
-              <StatArrow type="increase" />
-              5.5%
-            </StatHelpText>
-          </Stat>
-
-          <Stat
-            p="4"
-            borderWidth="1px"
-            borderRadius="md"
-            borderColor="gray.200"
-            bg="white"
-            boxShadow="md"
-          >
-            <StatLabel>Contenus publiés</StatLabel>
-            <StatNumber>350</StatNumber>
-            <StatHelpText>
-              <StatArrow type="increase" />
-              3.2%
-            </StatHelpText>
-          </Stat>
-
-          <Stat
-            p="4"
-            borderWidth="1px"
-            borderRadius="md"
-            borderColor="gray.200"
-            bg="white"
-            boxShadow="md"
-          >
-            <StatLabel>Nouvelles inscriptions</StatLabel>
-            <StatNumber>120</StatNumber>
-            <StatHelpText>
-              <StatArrow type="decrease" />
-              1.8%
-            </StatHelpText>
-          </Stat>
-        </SimpleGrid>
+      <Box ml="250px" p="8" pt="8" flex="1">
+        <Heading mb="12">Gestion des utilisateurs</Heading>
+        <Table variant="simple">
+          <Thead>
+            <Tr>
+              <Th>ID</Th>
+              <Th>Nom</Th>
+              <Th>Email</Th>
+              <Th>Rôle</Th>
+              <Th>Actions</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {mockUsers.map((user) => (
+              <Tr key={user.id}>
+                <Td>{user.id}</Td>
+                <Td>{user.name}</Td>
+                <Td>{user.email}</Td>
+                <Td>{user.role}</Td>
+                <Td>
+                  <HStack spacing="2">
+                    <Link
+                      color="blue.500"
+                      onClick={() => handleUpdate(user.id)}
+                    >
+                      Mettre à jour
+                    </Link>
+                    <Link color="red.500" onClick={() => handleDelete(user.id)}>
+                      Supprimer
+                    </Link>
+                  </HStack>
+                </Td>
+              </Tr>
+            ))}
+          </Tbody>
+        </Table>
       </Box>
 
       <Footer />
@@ -161,4 +158,4 @@ function AdminDashboardPage() {
   );
 }
 
-export default AdminDashboardPage;
+export default AdminUserManagementPage;

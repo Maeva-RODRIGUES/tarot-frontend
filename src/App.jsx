@@ -19,6 +19,8 @@ import "./styles/index.css";
 import UserSettingPage from "./pages/UserSettingPage.jsx";
 import TarotHistoryPage from "./pages/TarotHistoryPage.jsx";
 import AdminDashboardPage from "./pages/AdminDashboardPage.jsx";
+import AdminUserManagementPage from "./pages/AdminUserManagementPage.jsx";
+import ContentManagementPage from "./pages/ContentManagementPage.jsx";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
           <Route path="/settings" element={<UserSettingPage />} />
           <Route path="/drawingsstory" element={<TarotHistoryPage />} />
           <Route path="/admin" element={<AdminDashboardPage />} />
+          <Route path="/admin/users" element={<AdminUserManagementPage />} />
+          <Route path="/admin/content" element={<ContentManagementPage />} /> {/* Ajouter la route pour ContentManagementPage */}
 
        
         </Routes>
