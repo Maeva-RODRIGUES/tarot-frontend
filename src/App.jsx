@@ -16,6 +16,8 @@ import LoginPopup from "./components/LoginPopup"; // Importer LoginPopup
 import SignupPopup from "./components/SignupPopup"; // Importer SignupPopup
 import DashboardUserPage from "./pages/DashboardUserPage";
 import "./styles/index.css";
+import UserSettingPage from "./pages/UserSettingPage.jsx";
+import TarotHistoryPage from "./pages/TarotHistoryPage.jsx";
 
 function App() {
   return (
@@ -27,8 +29,11 @@ function App() {
           <Route path="/legal-mentions" element={<LegalMentionsPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/about" element={<AboutPage />} />{" "}
-          <Route path="/dashboarduser" element={<DashboardUserPage />} />
-          {/* Ajout de la route AboutPage */}
+          <Route path="/profile/*" element={<DashboardUserPage />} />
+          <Route path="/settings" element={<UserSettingPage />} />
+          <Route path="/drawingsstory" element={<TarotHistoryPage />} />
+
+       
         </Routes>
         <AppointmentPopup /> {/* Popup de contact */}
         <LoginPopup /> {/* Popup de connexion */}

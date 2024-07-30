@@ -65,7 +65,7 @@ function AboutPage() {
           boxSize="500px"
           width="600px"
           height="600px"
-          marginTop="-200px"
+          marginTop="-300px"
         />
         <Box ml={8}>
           <Heading size="md">
