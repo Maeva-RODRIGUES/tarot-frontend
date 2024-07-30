@@ -22,7 +22,7 @@ import { mockUserData } from "../utils/mockData";
 
 function DashboardUserPage() {
   return (
-    <Box>
+    <Box minHeight="100vh" display="flex" flexDirection="column">
       <Header />
 
       <Flex
@@ -34,7 +34,7 @@ function DashboardUserPage() {
         height="calc(100vh - 60px)" // Ajuster la hauteur pour prendre en compte la hauteur du header
         width="250px"
         position="fixed"
-        top="60px" // Positionner la barre latérale juste en dessous du header
+        top="100px" // Positionner la barre latérale juste en dessous du header
         left="0"
         boxShadow="md"
       >
@@ -69,7 +69,7 @@ function DashboardUserPage() {
         </VStack>
       </Flex>
 
-      <Box ml="250px" p="8" pt="8"> {/* Ajuster pt="8" pour le padding-top, ou utiliser pt pour éviter de chevaucher le header */}
+      <Box ml="250px" p="8" pt="8" flex="1"> {/* Ajuster pt="8" pour le padding-top, ou utiliser pt pour éviter de chevaucher le header */}
         <Heading mb="4">Bonjour {mockUserData.name}, bienvenue sur votre espace utilisateur !</Heading>
         <Box mb="8">
         </Box>

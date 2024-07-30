@@ -27,7 +27,7 @@ function App() {
           <Route path="/legal-mentions" element={<LegalMentionsPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/about" element={<AboutPage />} />{" "}
-          <Route path="/dashboard" element={<DashboardUserPage />} />
+          <Route path="/dashboarduser" element={<DashboardUserPage />} />
           {/* Ajout de la route AboutPage */}
         </Routes>
         <AppointmentPopup /> {/* Popup de contact */}
