@@ -18,6 +18,7 @@ import DashboardUserPage from "./pages/DashboardUserPage";
 import "./styles/index.css";
 import UserSettingPage from "./pages/UserSettingPage.jsx";
 import TarotHistoryPage from "./pages/TarotHistoryPage.jsx";
+import AdminDashboardPage from "./pages/AdminDashboardPage.jsx";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/profile/*" element={<DashboardUserPage />} />
           <Route path="/settings" element={<UserSettingPage />} />
           <Route path="/drawingsstory" element={<TarotHistoryPage />} />
+          <Route path="/admin" element={<AdminDashboardPage />} />
 
        
         </Routes>
