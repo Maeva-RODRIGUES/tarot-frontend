@@ -5,7 +5,7 @@ import { Box, Heading, Flex, Image, Button, Text } from "@chakra-ui/react";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import AppointmentPopup from "../components/AppointmentPopup.jsx";
-import { usePopup } from "../components/context/PopupContext.jsx"; // Corrigé pour ne pas importer
+import { usePopup } from "../components/context/PopupContext.jsx";
 import backgroundAbout from "../assets/img/cartomancienne.jpg";
 import footerBannerAbout from "../assets/img/destinee.png";
 
@@ -24,36 +24,48 @@ function AboutPage() {
         bannerAlt="Bannière about"
         bannerHeight="300px"
       />
-      <Box p="10" textAlign="center">
+      <Box p="5" textAlign="center">
         <Heading>BIENVENUE SUR LA ROUE DU DESTIN</Heading>
       </Box>
-      <Box p="10">
-        <Flex direction="column" align="flex-start">
-          <Heading size="md">
-            Votre espace dédié au tirage de tarot en ligne.
-          </Heading>
-          <Text mt="6">
-            Nous offrons une expérience unique de divination à travers les
-            cartes de tarot,
-            <br /> permettant à chacun de découvrir des perspectives et des
-            conseils pour son chemin de vie.
-          </Text>
-          <Text mt="2">
-            Notre site est conçu pour vous guider dans l'exploration de votre
-            avenir avec des tirages interactifs et des interprétations
-            profondes.
-          </Text>
+      <Box p="8">
+        <Flex direction="row" align="flex-start" alignItems="center" mt="-80px">
+          <Box flex="1">
+            <Heading size="md">
+              Votre espace dédié au tirage de tarot en ligne.
+            </Heading>
+            <Text mt="6">
+              Nous offrons une expérience unique de divination à travers les
+              cartes de tarot,
+              <br /> permettant à chacun de découvrir des perspectives et des
+              conseils pour son chemin de vie.
+            </Text>
+            <Text mt="2">
+              Notre site est conçu pour vous guider dans l'exploration de votre
+              avenir avec des tirages interactifs et des interprétations
+              profondes.
+            </Text>
+          </Box>
+          <Image
+            src="/src/assets/icons/iconcards.png"
+            alt="Illustration"
+            boxSize="500px" // Ajuste la taille de l'image
+            width="700px"
+            height="700px"
+            objectFit="contain" // Assure que l'image garde ses proportions
+            ml="8" // Ajoute un espace à gauche de l'image
+            transform="rotate(30deg)"
+          />
         </Flex>
       </Box>
 
       <Flex p="8" justifyContent="space-between" alignItems="center">
         <Image
-          src="/src/assets/icons/iconmoondoor.png"
+          src="/src/assets/img/visagecarto.png"
           alt="Illustration"
           boxSize="500px"
           width="600px"
           height="600px"
-          marginTop="-80px"
+          marginTop="-200px"
         />
         <Box ml={8}>
           <Heading size="md">
