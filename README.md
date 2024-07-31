@@ -1,8 +1,7 @@
-# React + Vite
+**Bienvenue dans le repository Frontend de mon site web de tarot !**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+Ce repository contient le code pour le frontend mon projet d'examen DWWM "La roue du destin", un site de tirage de tarot en ligne aléatoire.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Pour voir le projet en entier allez voir le repository "La roue du destin" 
